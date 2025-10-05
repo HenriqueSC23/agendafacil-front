@@ -35,10 +35,10 @@ export default function Services() {
     <div className="flex min-h-screen bg-background">
       <AdminSidebar />
       
-      <div className="flex-1 ml-64">
+      <div className="flex-1 lg:ml-64">
         <AdminHeader title="Gerenciamento de Serviços" />
         
-        <main className="p-6">
+        <main className="p-4 md:p-6">
           <div className="flex justify-between items-center mb-6">
             <p className="text-muted-foreground">Gerencie os serviços oferecidos</p>
             <Dialog open={open} onOpenChange={setOpen}>

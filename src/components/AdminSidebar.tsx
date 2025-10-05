@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Calendar, LayoutDashboard, Scissors, Users, DollarSign, Settings, LogOut, CalendarDays } from 'lucide-react';
+import { Calendar, LayoutDashboard, Scissors, Users, DollarSign, Settings, LogOut, CalendarDays, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useSidebar } from '@/contexts/SidebarContext';
 
 const menuItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/admin/dashboard' },
@@ -13,50 +14,74 @@ const menuItems = [
 
 export function AdminSidebar() {
   const location = useLocation();
+  const { isOpen, closeSidebar } = useSidebar();
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 border-r border-border bg-card z-50 flex flex-col">
-      <div className="p-6 border-b border-border">
-        <Link to="/admin/dashboard" className="flex items-center gap-2">
-          <Calendar className="h-8 w-8 text-primary" />
-          <span className="text-xl font-heading font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            AgendeFácil
-          </span>
-        </Link>
-      </div>
+    <>
+      {/* Overlay para mobile */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden"
+          onClick={closeSidebar}
+        />
+      )}
+      
+      {/* Sidebar */}
+      <aside className={cn(
+        "fixed left-0 top-0 h-screen w-64 border-r border-border bg-card z-50 flex flex-col transition-transform duration-300",
+        "lg:translate-x-0",
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      )}>
+        <div className="p-6 border-b border-border flex items-center justify-between">
+          <Link to="/admin/dashboard" className="flex items-center gap-2" onClick={closeSidebar}>
+            <Calendar className="h-8 w-8 text-primary" />
+            <span className="text-xl font-heading font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              AgendeFácil
+            </span>
+          </Link>
+          <button 
+            onClick={closeSidebar}
+            className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
-      <nav className="flex-1 p-4 space-y-1">
-        {menuItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = location.pathname === item.path;
-          
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={cn(
-                "flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200",
-                isActive
-                  ? "bg-primary text-primary-foreground font-medium shadow-md"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              )}
-            >
-              <Icon className="h-5 w-5" />
-              <span>{item.label}</span>
-            </Link>
-          );
-        })}
-      </nav>
+        <nav className="flex-1 p-4 space-y-1">
+          {menuItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = location.pathname === item.path;
+            
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={closeSidebar}
+                className={cn(
+                  "flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200",
+                  isActive
+                    ? "bg-primary text-primary-foreground font-medium shadow-md"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                )}
+              >
+                <Icon className="h-5 w-5" />
+                <span>{item.label}</span>
+              </Link>
+            );
+          })}
+        </nav>
 
-      <div className="p-4 border-t border-border">
-        <Link
-          to="/login"
-          className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-200"
-        >
-          <LogOut className="h-5 w-5" />
-          <span>Sair</span>
-        </Link>
-      </div>
-    </aside>
+        <div className="p-4 border-t border-border">
+          <Link
+            to="/login"
+            onClick={closeSidebar}
+            className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-200"
+          >
+            <LogOut className="h-5 w-5" />
+            <span>Sair</span>
+          </Link>
+        </div>
+      </aside>
+    </>
   );
 }

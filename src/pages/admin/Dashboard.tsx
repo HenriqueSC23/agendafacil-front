@@ -14,10 +14,10 @@ export default function Dashboard() {
     <div className="flex min-h-screen bg-background">
       <AdminSidebar />
       
-      <div className="flex-1 ml-64">
+      <div className="flex-1 lg:ml-64">
         <AdminHeader title="Dashboard" />
         
-        <main className="p-6 space-y-6">
+        <main className="p-4 md:p-6 space-y-6">
           {/* Stats Cards */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <StatCard

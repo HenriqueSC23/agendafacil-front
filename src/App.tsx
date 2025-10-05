@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SidebarProvider } from "@/contexts/SidebarContext";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import ClientBooking from "./pages/ClientBooking";
@@ -23,20 +24,22 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/agendar" element={<ClientBooking />} />
-          <Route path="/confirmacao" element={<BookingConfirmation />} />
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-          <Route path="/admin/calendario" element={<Calendar />} />
-          <Route path="/admin/servicos" element={<Services />} />
-          <Route path="/admin/clientes" element={<Clients />} />
-          <Route path="/admin/faturamento" element={<Billing />} />
-          <Route path="/admin/configuracoes" element={<Settings />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <SidebarProvider>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/agendar" element={<ClientBooking />} />
+            <Route path="/confirmacao" element={<BookingConfirmation />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/calendario" element={<Calendar />} />
+            <Route path="/admin/servicos" element={<Services />} />
+            <Route path="/admin/clientes" element={<Clients />} />
+            <Route path="/admin/faturamento" element={<Billing />} />
+            <Route path="/admin/configuracoes" element={<Settings />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </SidebarProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -9,30 +9,30 @@ export default function Index() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
-        <div className="container relative mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="mx-auto w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-2xl animate-scale-in">
-              <Calendar className="h-10 w-10 text-white" />
+        <div className="container relative mx-auto px-4 py-12 md:py-20">
+          <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
+            <div className="mx-auto w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-2xl animate-scale-in">
+              <Calendar className="h-8 w-8 md:h-10 md:w-10 text-white" />
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-heading font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-fade-in">
               AgendeFácil
             </h1>
             
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-slide-up">
               O sistema de agendamento inteligente para profissionais autônomos e empresas. 
               Simplifique sua gestão e conquiste mais clientes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
               <Link to="/agendar">
-                <Button size="lg" className="text-lg px-8">
+                <Button size="lg" className="text-base md:text-lg px-6 md:px-8 w-full sm:w-auto">
                   Agendar Horário
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link to="/login">
-                <Button size="lg" variant="outline" className="text-lg px-8">
+                <Button size="lg" variant="outline" className="text-base md:text-lg px-6 md:px-8 w-full sm:w-auto">
                   Área do Profissional
                 </Button>
               </Link>
@@ -42,9 +42,9 @@ export default function Index() {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-heading font-bold mb-4">Por que escolher o AgendeFácil?</h2>
+      <section className="container mx-auto px-4 py-12 md:py-20">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4">Por que escolher o AgendeFácil?</h2>
           <p className="text-muted-foreground">Recursos completos para transformar seu negócio</p>
         </div>
 
@@ -100,18 +100,18 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="container mx-auto px-4 py-20">
+      <section className="container mx-auto px-4 py-12 md:py-20">
         <Card className="max-w-4xl mx-auto bg-gradient-to-r from-primary to-secondary text-white border-0">
-          <CardContent className="p-12 text-center space-y-6">
-            <h2 className="text-4xl font-heading font-bold">
+          <CardContent className="p-8 md:p-12 text-center space-y-4 md:space-y-6">
+            <h2 className="text-2xl md:text-4xl font-heading font-bold">
               Pronto para revolucionar seu negócio?
             </h2>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
               Comece gratuitamente e descubra como é fácil gerenciar seus agendamentos
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link to="/login">
-                <Button size="lg" variant="secondary" className="text-lg px-8">
+                <Button size="lg" variant="secondary" className="text-base md:text-lg px-6 md:px-8 w-full sm:w-auto">
                   Começar Agora
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

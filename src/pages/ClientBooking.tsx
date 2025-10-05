@@ -59,7 +59,7 @@ export default function ClientBooking() {
       <main className="container mx-auto px-4 py-8 max-w-2xl">
         <Card className="animate-fade-in">
           <CardHeader>
-            <CardTitle className="text-2xl font-heading">Agendar Horário</CardTitle>
+            <CardTitle className="text-xl md:text-2xl font-heading">Agendar Horário</CardTitle>
             <CardDescription>Preencha os dados abaixo para confirmar seu agendamento</CardDescription>
           </CardHeader>
 
@@ -101,7 +101,7 @@ export default function ClientBooking() {
               {/* Horário */}
               <div className="space-y-2">
                 <Label>Horários Disponíveis</Label>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {availableTimes.map((time) => (
                     <Button
                       key={time}

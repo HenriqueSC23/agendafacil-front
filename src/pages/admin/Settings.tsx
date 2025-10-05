@@ -23,10 +23,10 @@ export default function Settings() {
     <div className="flex min-h-screen bg-background">
       <AdminSidebar />
       
-      <div className="flex-1 ml-64">
+      <div className="flex-1 lg:ml-64">
         <AdminHeader title="Configurações" />
         
-        <main className="p-6 space-y-6 max-w-4xl">
+        <main className="p-4 md:p-6 space-y-6 max-w-4xl">
           {/* Perfil do Profissional */}
           <Card>
             <CardHeader>

@@ -32,10 +32,10 @@ export default function Clients() {
     <div className="flex min-h-screen bg-background">
       <AdminSidebar />
       
-      <div className="flex-1 ml-64">
+      <div className="flex-1 lg:ml-64">
         <AdminHeader title="Clientes" />
         
-        <main className="p-6">
+        <main className="p-4 md:p-6">
           <div className="mb-6">
             <div className="relative max-w-md">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
